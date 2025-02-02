@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assista ao Vídeo</title>
+    <script>
+        function abrirVideo() {
+            // Link de visualização do Google Drive
+            let videoUrl = "https://drive.google.com/file/d/1BR1jTfmvmgPvvjxitmJ0jOCm40bmFaPg/preview"; // Substitua pelo seu ID do vídeo
+            let novaJanela = window.open("", "_blank", "fullscreen=yes");
+
+            if (novaJanela) {
+                novaJanela.document.write(`
+                    <html>
+                    <head>
+                        <title>Reprodução do Vídeo</title>
+                        <style>
+                            body { margin: 0; background: black; display: flex; align-items: center; justify-content: center; height: 100vh; }
+                            iframe { width: 100vw; height: 100vh; border: none; }
+                        </style>
+                    </head>
+                    <body>
+                        <iframe src="${videoUrl}" allow="autoplay"></iframe>
+                    </body>
+                    </html>
+                `);
+                novaJanela.document.close();
+            } else {
+                alert("Permita pop-ups para visualizar o vídeo.");
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.imgur.com/rLg8A3K.jpeg'); /* Link da imagem no Imgur */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distância entre a mensagem e o botão */
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        p {
+            font-size: 1.2em; /* Diminuído para ficar mais proporcional */
+            font-weight: bold;
+            color: #8a2be2; /* Cor roxa */
+            background-color: white; /* Fundo branco para a mensagem */
+            padding: 12px 25px; /* Ajustado para ficar mais justo com a fonte */
+            border-radius: 15px; /* Bordas arredondadas */
+            width: auto; /* Ajusta o tamanho da área de texto de acordo com o conteúdo */
+            max-width: 80%; /* Limita o tamanho máximo da caixa de texto */
+            margin-top: 55%; /* Coloca a mensagem ainda mais para baixo */
+            box-sizing: border-box; /* Ajuste para garantir o preenchimento adequado */
+        }
+
+        .botao {
+            background-color: #ff6f61; /* Cor do botão */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 50px; /* Coloca o botão mais na parte inferior */
+        }
+
+        .botao:hover {
+            background-color: #e65b50; /* Cor do botão quando passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <p>Assista ao convite agora clicando no botão abaixo</p>
+    <button class="botao" onclick="abrirVideo()">Assistir ao Vídeo</button>
+</body>
+</html>
